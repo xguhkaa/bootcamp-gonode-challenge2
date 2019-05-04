@@ -1,1 +1,3 @@
 node_modules/
+tmp/sessions.db
+tmp/uploads/
