@@ -1,0 +1,8 @@
+{% for schedule in schedules %}
+  <label class="{% if schedule.available === false %}disabled{% endif %}" for="time-{{ schedule.workSchedule }}">
+    {% if schedule.available === true %}
+      <input type="radio" name="scheduleDate" value="{{ schedule.fomattedWorkSchedule }}" id="time-{{ schedule.workSchedule }}" />
+    {% endif %}
+    {{ schedule.workSchedule }}
+  </label>
+{% endfor %}

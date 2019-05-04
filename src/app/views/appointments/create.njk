@@ -1,0 +1,34 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+  <div class="content">
+    <strong>Scheduling</strong>
+
+    <div class="provider">
+      <div>
+        <img alt="avatar" src="/files/{{ provider.avatar }}"/>
+        <strong>{{ provider.name }}</strong>
+      </div>
+    </div>
+
+    <form action="/app/appointments/new/{{ provider.id }}" method="post">
+      <input type="text" class="flatpickr" placeholder="Select a data"/>
+
+      <div id="hours"></div>
+
+      <button type="submit">Schedule</button>
+    </form>
+  </div>
+
+
+  <script type="text/javascript">
+    flatpickr('.flatpickr',{
+      minDate: new Date(),
+      dateFormat: 'm/d/y',
+      onChange: async function(selectedDate){
+        const responseFromAvailableSchedules = await fetch(`/app/available/{{ provider.id }}?date=${selectedDate[0].getTime()}`);
+        document.getElementById('hours').innerHTML = await responseFromAvailableSchedules.text();
+      }
+    })
+  </script>
+{% endblock %}
