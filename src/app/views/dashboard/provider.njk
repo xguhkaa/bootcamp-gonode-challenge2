@@ -4,5 +4,24 @@
   <div class="content">
     <strong>Hello, {{ user.name }}</strong>
     <p>Take a look at your clients scheduled today</p>
+
+    <ul class="clients">
+      {% if clients.length == 0 %}
+        <span class="empty">
+          No one was found :(
+        </span>
+      {% endif %}
+      {% for client in clients %}
+        <li class="client">
+          <img src="/files/{{ client.avatar }}" alt="avatar"/>
+          <div>
+            <strong>{{ client.name}}</strong>
+            <h4>Today at {{ client.date }}</h4>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a href="/app/logout" class="logout">Logout</a>
   </div>
 {% endblock %}

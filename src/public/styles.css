@@ -190,6 +190,12 @@ ul.providers {
   flex-direction: column;
 }
 
+ul.clients {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
 .provider {
   padding: 20px;
   border: 1px solid #ddd;
@@ -200,9 +206,28 @@ ul.providers {
   justify-content: space-between;
 }
 
+.client {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
 .provider div {
   display: flex;
   align-items: center;
+}
+
+.client div {
+  display: flex;
+  flex-grow: 1;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .provider img {
@@ -211,7 +236,23 @@ ul.providers {
   border-radius: 50%;
 }
 
+.client img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
 .provider strong {
+  margin-left: 15px;
+  color: #444;
+}
+
+.client strong {
+  margin-left: 15px;
+  color: #444;
+}
+
+.client h4 {
   margin-left: 15px;
   color: #444;
 }
@@ -234,6 +275,14 @@ ul.providers {
   border: 1px solid #de6d6d;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 10px;
+}
+
+.empty {
+  border: none;
+  background: none;
+  margin: 20px auto 40px;
+  font-size: 1.2rem;
+  color: #a0a0a0;
 }
 
 .alert-success {

@@ -17,7 +17,7 @@ class ProviderController {
       date: scheduleDate
     })
 
-    return res.redirect('/app/dashboard')
+    return res.redirect('/app/dashboard/index')
   }
 }
 
