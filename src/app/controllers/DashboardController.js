@@ -4,7 +4,14 @@ const { Op } = require('sequelize')
 
 class DashboardController {
   async indexProviders (req, res) {
-    const foundProviders = await User.findAll({ where: { provider: true } })
+    const foundProviders = await User.findAll({
+      where: {
+        provider: true,
+        id: {
+          [Op.ne]: req.session.user.id
+        }
+      }
+    })
     return res.render('dashboard/index', { providers: foundProviders })
   }
 
